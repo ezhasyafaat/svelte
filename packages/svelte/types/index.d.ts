@@ -2213,6 +2213,8 @@ declare module 'svelte/internal/devtools' {
 
 	export function kind(value: Signal): SignalKind;
 
+	export function kind(value: Reaction): EffectKind | SignalKind;
+
 	export function isDestroyed(effect: Effect | Reaction): boolean;
 	/**
 	 * The DEV label of a signal, e.g. `count` or `todos[0].text`
@@ -2221,7 +2223,7 @@ declare module 'svelte/internal/devtools' {
 	/**
 	 * Where a signal or effect was declared, as `file:line:column`, if known
 	 * */
-	export function location(value: Signal | Effect): string | undefined;
+	export function location(value: Signal | Reaction): string | undefined;
 	/**
 	 * The component an effect belongs to. `null` once the effect is destroyed
 	 * */
